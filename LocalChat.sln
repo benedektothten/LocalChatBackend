@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalChat", "LocalChat\LocalChat.csproj", "{8F2A5A4C-6A8B-44C6-9F64-B49671EB6F5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageProcessorService", "MessageProcessorService\MessageProcessorService.csproj", "{A1868F80-65C8-4717-9789-EFB37C5D6B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7085EFE3-8F0C-4A9D-B4D9-5CB49C2BB694}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F2A5A4C-6A8B-44C6-9F64-B49671EB6F5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2A5A4C-6A8B-44C6-9F64-B49671EB6F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2A5A4C-6A8B-44C6-9F64-B49671EB6F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2A5A4C-6A8B-44C6-9F64-B49671EB6F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1868F80-65C8-4717-9789-EFB37C5D6B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1868F80-65C8-4717-9789-EFB37C5D6B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1868F80-65C8-4717-9789-EFB37C5D6B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1868F80-65C8-4717-9789-EFB37C5D6B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7085EFE3-8F0C-4A9D-B4D9-5CB49C2BB694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7085EFE3-8F0C-4A9D-B4D9-5CB49C2BB694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7085EFE3-8F0C-4A9D-B4D9-5CB49C2BB694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7085EFE3-8F0C-4A9D-B4D9-5CB49C2BB694}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

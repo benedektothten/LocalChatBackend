@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: LocalChat/Dockerfile
+    ports:
+      - "5000:80" # Map the container port to host
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+
+    depends_on:
+      - messageprocessor
+
+  messageprocessor:
+    build:
+      context: .
+      dockerfile: MessageProcessorService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      - KeyVaultName=chatsecrets-benedek-dev
+      #- MESSAGE_QUEUE_CONNECTION=<<YourMessageQueueEndpoint>>

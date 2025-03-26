@@ -1,0 +1,25 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messageprocessor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: messageprocessor
+  template:
+    metadata:
+      labels:
+        app: messageprocessor
+    spec:
+      containers:
+      - name: messageprocessor
+        image: messageprocessorservice:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
