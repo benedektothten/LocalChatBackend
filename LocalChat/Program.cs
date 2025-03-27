@@ -25,9 +25,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer(); // For Minimal API Swagger
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR(); // For SignalR real-time communication
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.ListenAnyIP(5000); // Listen on all IPs for port 5000
+    serverOptions.ListenAnyIP(int.Parse(port)); // Listen on all IP addresses for the specified port
 });
 
 // Add Key Vault configuration
