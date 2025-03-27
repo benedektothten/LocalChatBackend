@@ -6,6 +6,7 @@ using Common.Persistence;
 using Common.Settings;
 using LocalChat;
 using LocalChat.Endpoints;
+using LocalChat.Endpoints.HealthCheck;
 using LocalChat.Services;
 using LocalChat.Services.Extensions;
 using LocalChat.Validators;
@@ -25,6 +26,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer(); // For Minimal API Swagger
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR(); // For SignalR real-time communication
+builder.Services.AddHealthChecks().AddCheck<DefaultHealthCheck>("Default health check");
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 
 builder.WebHost.ConfigureKestrel(serverOptions =>
@@ -145,5 +147,6 @@ app.MapLoginEndpoints();
 app.MapUserEndpoints();
 app.MapMessageEndpoints();
 app.MapChatRoomEndpoints();
+app.MapHealthChecks("/healthz");
 
 app.Run();
