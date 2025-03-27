@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Text;
+using Common.Persistence;
 using Common.Settings;
-using LocalChat.Common.Persistence;
 using LocalChat.DTOs;
 using LocalChat.Persistence;
 using LocalChat.Services.Interfaces;

@@ -1,4 +1,4 @@
-﻿using LocalChat.Common.Persistence;
+﻿using Common.Persistence;
 using LocalChat.DTOs;
 using LocalChat.Endpoints.EndpointFilters;
 using LocalChat.Persistence;

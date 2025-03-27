@@ -1,7 +1,7 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Common.DTOs;
+using Common.Persistence;
 using Common.Settings;
-using LocalChat.Common.Persistence;
 using Microsoft.Extensions.Options;
 
 namespace MessageProcessorService.Processors;

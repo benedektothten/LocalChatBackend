@@ -1,4 +1,4 @@
-﻿using LocalChat.Common.Persistence;
+﻿using Common.Persistence;
 using LocalChat.Persistence;
 using LocalChat.Validators.Interfaces;
 using Microsoft.EntityFrameworkCore;

@@ -1,10 +1,8 @@
 ﻿using System.Security.Claims;
 using Common.Caches;
-using LocalChat.Common.Persistence;
+using Common.Persistence;
 using LocalChat.DTOs;
 using LocalChat.Endpoints.EndpointFilters;
-using LocalChat.Persistence;
-using LocalChat.Services;
 using LocalChat.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

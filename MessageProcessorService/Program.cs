@@ -1,5 +1,5 @@
 using Common.Configurations;
-using LocalChat.Common.Persistence;
+using Common.Persistence;
 using MessageProcessorService.Processors;
 using Microsoft.EntityFrameworkCore;
 

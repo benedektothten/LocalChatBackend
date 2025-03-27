@@ -1,4 +1,4 @@
-﻿using LocalChat.Common.Persistence;
+﻿using Common.Persistence;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 

@@ -2,11 +2,10 @@
 using Azure.Messaging.ServiceBus;
 using Common.Caches;
 using Common.DTOs;
+using Common.Persistence;
 using Common.Settings;
-using LocalChat.Common.Persistence;
 using LocalChat.DTOs;
 using LocalChat.Endpoints.EndpointFilters;
-using LocalChat.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
