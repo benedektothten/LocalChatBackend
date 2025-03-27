@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 
@@ -24,6 +25,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer(); // For Minimal API Swagger
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR(); // For SignalR real-time communication
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(5000); // Listen on all IPs for port 5000
+});
 
 // Add Key Vault configuration
 builder.Configuration.AddAzureKeyVaultConfiguration(builder.Configuration);
@@ -33,7 +38,7 @@ builder.Services.AddRedisCache(builder.Configuration);
 builder.Services.AddCaches();
 builder.Services.AddValidators();
 builder.Services.AddServices();
-
+Console.WriteLine($"Default connections: {builder.Configuration["DefaultConnection"]}");
 builder.Services.AddDbContext<ChatDbContext>(options =>
     options.UseNpgsql(builder.Configuration["DefaultConnection"]));
 
