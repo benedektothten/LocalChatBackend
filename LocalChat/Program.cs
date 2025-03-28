@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 
@@ -148,5 +149,7 @@ app.MapUserEndpoints();
 app.MapMessageEndpoints();
 app.MapChatRoomEndpoints();
 app.MapHealthChecks("/healthz");
+
+app.MapGet("/", () => Results.Ok("Healthy"));
 
 app.Run();
