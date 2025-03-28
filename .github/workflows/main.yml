@@ -38,6 +38,9 @@ jobs:
 
   deploy_to_azure:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Grant id-token write permission for OIDC
+      contents: read  # Required for actions/checkout
     needs: build_and_push_docker_image
     steps:
       # Login to Azure
