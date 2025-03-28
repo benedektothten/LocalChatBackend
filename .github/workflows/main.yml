@@ -33,7 +33,7 @@ jobs:
       # Build and push the Docker image to Azure Container Registry
       - name: Build and Push Docker Image
         run: |
-          docker build -t localchat.azurecr.io/localchat:latest ./LocalChat
+          docker build -f ./LocalChat/Dockerfile -t localchat.azurecr.io/localchat:latest .
           docker push localchat.azurecr.io/localchat:latest
 
   deploy_to_azure:
