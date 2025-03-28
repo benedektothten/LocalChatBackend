@@ -12,12 +12,19 @@ jobs:
     permissions:
       id-token: write # Grant id-token write permission for OIDC
       contents: read  # Required for actions/checkout
-
+    env:
+      FRONTEND_ORIGIN: ${{ secrets.FRONTEND_ORIGIN_PRODUCTION }} # Dynamically set from secrets
 
     steps:
       # Checkout code from the GitHub repository
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Replace CORS Origin in Code
+        run: |
+          echo "Replacing origin URL in CORS configuration..."
+          sed -i 's#http://localhost:5173#'${FRONTEND_ORIGIN}'#g' ./LocalChat/Program.cs
+
 
       # Log in to Docker Hub or Azure Container Registry (ACR)
       - name: Log in to Azure Container Registry
