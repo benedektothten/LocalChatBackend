@@ -106,7 +106,7 @@ public static class ChatRoomEndpoints
                     m.Content,
                     m.SentAt,
                     m.Sender.Username, // Resolve SenderUsername from navigation property
-                    m.IsGif
+                    m.IsGif ?? false
                 ))
                 .ToListAsync();
             

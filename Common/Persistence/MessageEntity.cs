@@ -10,7 +10,7 @@ public class MessageEntity
     public DateTime SentAt { get; set; } = DateTime.UtcNow; // Maps to chat.messages.sentat
     public Guid UniqueId { get; set; } = Guid.NewGuid(); // Maps to chat.messages.messageguid
     
-    public bool IsGif { get; set; } = false; // Maps to chat.messages.isgifs
+    public bool? IsGif { get; set; } = false; // Maps to chat.messages.isgifs
 
     // Navigation properties
     public ChatRoomEntity ChatRoom { get; set; } // Foreign key relationship to ChatRoom

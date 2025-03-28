@@ -12,6 +12,7 @@ using LocalChat.Services.Extensions;
 using LocalChat.Validators;
 using LocalChat.Validators.Extensions;
 using LocalChat.Validators.Interfaces;
+using MessageProcessorService.Processors;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -109,23 +110,30 @@ builder.Services.AddAuthorization();
 // Add CORS policy
 builder.Services.AddCors(options =>
 {
+    string frontendOrigin = Environment.GetEnvironmentVariable("FRONTEND_ORIGIN") 
+                            ?? "http://localhost:5173"; // Default to localhost for development
+
     options.AddPolicy("AllowFrontendApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // Replace with your frontend's origin
+        policy.WithOrigins(frontendOrigin) // Replace with your frontend's origin
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
     options.AddDefaultPolicy(policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins(frontendOrigin)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials() // Required for SignalR
             .SetIsOriginAllowed(origin => true); // OR specify allowed origins explicitly
     });
-
 });
+
+if (builder.Configuration.GetValue<bool>("HostedServiceAllowed"))
+{
+    builder.Services.AddHostedService<MessageQueueProcessor>();
+}
 
 var app = builder.Build();
 

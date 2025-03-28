@@ -31,7 +31,7 @@ public static class MessageEndpoints
                     m.Content,
                     m.SentAt,
                     m.Sender.Username, // Include only the Sender's username
-                    m.IsGif
+                    m.IsGif ?? false
                 ))
                 .ToListAsync();
 
