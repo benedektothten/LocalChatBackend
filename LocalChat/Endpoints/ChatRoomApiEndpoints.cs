@@ -34,6 +34,7 @@ public static class ChatRoomEndpoints
                             m.SentAt,
                             m.SenderId,
                             SenderUsername = m.Sender.Username, // Assuming navigation property is available
+                            m.Sender.AvatarUrl,
                             m.IsGif
                         })
                         .FirstOrDefault() // Get the latest message
